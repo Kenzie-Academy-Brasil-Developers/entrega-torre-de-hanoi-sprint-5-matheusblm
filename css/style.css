@@ -20,10 +20,16 @@
 .tower1, .tower2, .tower3{
 	border: 1px solid black;
 	background-color: black;
-	width: 20px;
+	width: 200px;
 	height: 300px;
-	margin-right: 80px;
+	margin-right: 20px;
 }
 .tower3{
 	margin-right: 0px;
+}
+
+span{
+	background-color: white;
+	height: 30px;
+	width: 20px;
 }
