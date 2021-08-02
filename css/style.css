@@ -1,1 +1,13 @@
+#buttonReset{
+	border-style: hidden;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 10px;
+	background-color: #FCF9DE;
+	color: #000;
+}
+#buttonReset:hover{
+	background-color: #C3FAD0;
+	cursor: pointer;
+}
 
