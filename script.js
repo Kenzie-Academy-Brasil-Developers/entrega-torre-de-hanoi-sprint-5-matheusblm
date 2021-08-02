@@ -1,8 +1,3 @@
-// const buttonReset = document.getElementById("buttonReset") 
-// button.addEventListener("click", function () {
-// 	window.location.reload(true)
-//       });
-
 function creatTower(){
 	let board = document.getElementById("board")
 	let newTower1 = document.createElement("div")
@@ -18,13 +13,13 @@ function creatTower(){
 
 function creatDisc(){
 	let tower = document.getElementsByClassName("tower1")[0]
-	let disc1 = document.createElement("span")
+	let disc1 = document.createElement("div")
 	disc1.classList.add("disc1")
-	let disc2 = document.createElement("span")
+	let disc2 = document.createElement("div")
 	disc2.classList.add("disc2")
-	let disc3 = document.createElement("span")
+	let disc3 = document.createElement("div")
 	disc3.classList.add("disc3")
-	let disc4 = document.createElement("span")
+	let disc4 = document.createElement("div")
 	disc4.classList.add("disc4")
 	tower.appendChild(disc1)
 	tower.appendChild(disc2)
@@ -32,7 +27,4 @@ function creatDisc(){
 	tower.appendChild(disc4)
 }
 
-function tudo(){
-	creatTower()
-	creatDisc()
-}
+\
