@@ -1,1 +1,12 @@
+body {
+     background-color: whitesmoke
+}
 
+header { 
+    background-color: #03071e;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
