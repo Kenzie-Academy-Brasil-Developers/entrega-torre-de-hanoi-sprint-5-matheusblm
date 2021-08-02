@@ -1,25 +1,28 @@
-const towersDiv = document.querySelectorAll(".tower") //alterar para a classe das divs onde vão estar as torres
+const towersDiv = document.querySelectorAll(".tower"); //alterar para a classe das divs onde vão estar as torres
 let firstDiskSelected = null;
 
-function checkMove(originDiv, targetDiv){
+function checkMove(originDiv, targetDiv) {}
 
-}
-
-function diskMove(event){
-    if(firstDiskSelect === null){
-        if(event.currentTarget.childElementCount === 1){
-            return 'erro';
-        }
-        event.currentTarget.classList.add('selected');
-        firstDiskSelected = event.currentTarget;
+function diskMove(event) {
+  console.log("move");
+  if (firstDiskSelected === null) {
+    if (event.currentTarget.childElementCount === 1) {
+      return "erro"; //criar aviso de erro
     } else {
-        if(checkMove(firstDiskSelected, event.currentTarget)){
-
-        }
+      event.currentTarget.classList.add("selected");
+      firstDiskSelected = event.currentTarget;
     }
-    
+  } else {
+    if (checkMove(firstDiskSelected, event.currentTarget)) {
+      let disk = firstDiskSelected.lastElementChild;
+      event.currentTarget.appendChild(disk);
+    } else {
+      firstDiskSelected.classList.remove("selected");
+    }
+    firstDiskSelected = null;
+  }
 }
 
-for(let index = 0; index < towersDiv.length;index++){
-    towersDiv[i].addEventListener("click", diskMove);
+for (let index = 0; index < towersDiv.length; index++) {
+  towersDiv[index].addEventListener("click", diskMove);
 }
