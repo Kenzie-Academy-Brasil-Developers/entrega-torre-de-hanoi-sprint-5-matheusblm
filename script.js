@@ -1,3 +1,9 @@
+function checkMove(originDiv, targetDiv) {
+    if(originDiv.lastElementChild.clientWidth > targetDiv.lastElementChild.clientWidth) {
+        return false;
+    }
+    return true;
+}
 
 const towersDiv = document.querySelectorAll(".tower"); //alterar para a classe das divs onde vão estar as torres
 let firstDiskSelected = null;
@@ -36,4 +42,5 @@ function resetTowers(){
 }
 
 buttonReset.addEventListener('click', resetTowers);
+
 
