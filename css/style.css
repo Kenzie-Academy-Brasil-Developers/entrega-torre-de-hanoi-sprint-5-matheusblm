@@ -77,6 +77,8 @@ header {
 	text-align: center;
 	padding: 40px;
 	transition-duration: 0.5s;
+	z-index: 1;
+	color: red;
 }
 
 .hidden{

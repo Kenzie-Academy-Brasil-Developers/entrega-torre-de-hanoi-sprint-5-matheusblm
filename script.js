@@ -46,7 +46,7 @@ function discMove(event) {
 		if (event.currentTarget.childElementCount === 0) {
 			console.log("erro sem filho");
 
-	  		return "erro"; //criar aviso de erro
+	  		return alertErro();
 		} else {
 			console.log("selecionado");
 	  		event.currentTarget.classList.add("selected");
@@ -59,6 +59,7 @@ function discMove(event) {
 			console.log("movimentado");
 		} else {
 			console.log("não pode movimentar");
+			alertErro();
 	  		firstdiscSelected.classList.remove("selected");
 		}
 		firstdiscSelected = null;
@@ -68,6 +69,8 @@ function discMove(event) {
 function resetTowers(){
 	const board = document.querySelector("#board");
 	board.innerHTML = "";
+	let div = document.getElementById("torreDeHanoiReset")
+	div.classList.add("hidden")
 	startGame();
 }
     
@@ -97,13 +100,13 @@ function alertErro(){
 	div.appendChild(novo)
 	setTimeout(function(){
 	novo.classList.add("hidden")
-	}, 3000)
+	}, 1000)
 }
 
 function checkWinner(){
 	lastTower = document.querySelector(".tower3");
 	if(lastTower.childElementCount === 4){
-		return alert("you win!")
+		return alertWin()
 	}
 }
 
