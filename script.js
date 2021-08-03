@@ -4,7 +4,10 @@ let initialMain = document.querySelector("main").innerHTML; //colocar logo após
 let firstdiscSelected = null;
 let lastTower = document.querySelector(".tower3");
 let movimentos = document.getElementById("contador");
-let contador = 0
+let contador = 0;
+const select = new Audio();
+const erro = new Audio();
+const congr = new Audio();
 
 function creatTower(){
 	let board = document.getElementById("board")
