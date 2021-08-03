@@ -1,3 +1,9 @@
+let towersDiv = document.querySelectorAll(".tower");
+const buttonReset = document.querySelector("#buttonReset");
+let initialMain = document.querySelector("main").innerHTML; //colocar logo após criar as torres e discos
+let firstdiscSelected = null;
+let lastTower = document.querySelector(".tower3");
+
 function creatTower(){
 	let board = document.getElementById("board")
 	let newTower1 = document.createElement("div")
@@ -28,50 +34,62 @@ function creatDisc(){
 }
 
 function checkMove(originDiv, targetDiv) {
-	if(originDiv.lastElementChild.clientWidth > targetDiv.lastElementChild.clientWidth) {
-	    return false;
-	}
-	return true;
-    }
+	if(targetDiv.lastElementChild === null || originDiv.lastElementChild.clientWidth < targetDiv.lastElementChild.clientWidth) {
+		return true;
+	} 
+	return false;
+}
     
-    const towersDiv = document.querySelectorAll(".tower"); //alterar para a classe das divs onde vão estar as torres
-    let firstDiskSelected = null;
    
-    function diskMove(event) {
-      console.log("move");
-      if (firstDiskSelected === null) {
-	if (event.currentTarget.childElementCount === 1) {
-	  return "erro"; //criar aviso de erro
-	} else {
-	  event.currentTarget.classList.add("selected");
-	  firstDiskSelected = event.currentTarget;
-	}
-      } else {
-	if (checkMove(firstDiskSelected, event.currentTarget)) {
-	  let disk = firstDiskSelected.lastElementChild;
-	  event.currentTarget.appendChild(disk);
-	} else {
-	  firstDiskSelected.classList.remove("selected");
-	}
-	firstDiskSelected = null;
-      }
+function discMove(event) {
+	console.log("move");
+    if (firstdiscSelected === null) {
+		if (event.currentTarget.childElementCount === 0) {
+			console.log("erro sem filho");
+
+	  		return "erro"; //criar aviso de erro
+		} else {
+			console.log("selecionado");
+	  		event.currentTarget.classList.add("selected");
+	  		firstdiscSelected = event.currentTarget;
+		}
+    } else {
+		if (checkMove(firstdiscSelected, event.currentTarget)) {
+	  		let disc = firstdiscSelected.lastElementChild;
+	  		event.currentTarget.appendChild(disc);
+			console.log("movimentado");
+		} else {
+			console.log("não pode movimentar");
+	  		firstdiscSelected.classList.remove("selected");
+		}
+		firstdiscSelected = null;
     }
+	checkWinner();
+}
+function resetTowers(){
+	const board = document.querySelector("#board");
+	board.innerHTML = "";
+	startGame();
+}
     
-    for (let index = 0; index < towersDiv.length; index++) {
-      towersDiv[index].addEventListener("click", diskMove);
-    }
+buttonReset.addEventListener('click', resetTowers);
     
-    const buttonReset = document.querySelector("#reset");
-    const initialMain = document.querySelector("main").innerHTML; //colocar logo após criar as torres e discos
-    function resetTowers(){
-	const actualMain = document.querySelector("main");
-	actualMain.innerHTML = initialMain;
-    }
-    
-    buttonReset.addEventListener('click', resetTowers);
-    
-    function checkWinner(){
-	if(targetDiv.childElementCount === 4){
+function checkWinner(){
+	lastTower = document.querySelector(".tower3");
+	if(lastTower.childElementCount === 4){
 		return alert("you win!")
 	}
 }
+
+//Começa a criar o jogo
+function startGame() { 
+	creatTower();
+	creatDisc();
+	towersDiv = document.querySelectorAll(".tower");
+	
+	for (let index = 0; index < towersDiv.length; index++) {
+		towersDiv[index].addEventListener("click", discMove);
+	}
+}
+
+startGame();
