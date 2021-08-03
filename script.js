@@ -3,6 +3,8 @@ const buttonReset = document.querySelector("#buttonReset");
 let initialMain = document.querySelector("main").innerHTML; //colocar logo após criar as torres e discos
 let firstdiscSelected = null;
 let lastTower = document.querySelector(".tower3");
+let movimentos = document.getElementById("contador");
+let contador = 0
 
 function creatTower(){
 	let board = document.getElementById("board")
@@ -55,7 +57,10 @@ function discMove(event) {
 		if (checkMove(firstdiscSelected, event.currentTarget)) {
 	  		let disc = firstdiscSelected.lastElementChild;
 	  		event.currentTarget.appendChild(disc);
+			contador++
+			movCount()
 			firstdiscSelected.classList.remove("selected");
+
 			console.log("movimentado");
 		} else {
 			console.log("não pode movimentar");
@@ -72,6 +77,7 @@ function resetTowers(){
 	board.innerHTML = "";
 	let div = document.getElementById("torreDeHanoiReset")
 	div.classList.remove("alert")
+	contador = 0
 	startGame();
 }
     
@@ -109,7 +115,13 @@ function checkWinner(){
 		return alertWin()
 	}
 }
-
+function movCount(){
+	let novo = document.createElement("span")
+	let div = document.getElementById("divContador")
+	movimentos.innerHTML = "Movimentos: " + contador
+	novo.append(movimentos)
+	div.append(novo)
+}
 //Começa a criar o jogo
 function startGame() { 
 	creatTower();
