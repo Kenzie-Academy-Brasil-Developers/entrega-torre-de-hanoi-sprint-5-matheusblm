@@ -49,6 +49,7 @@ function discMove(event) {
 	if (firstdiscSelected === null) {
 		if(event.target.classList.contains("disc")){
 			if (event.currentTarget.childElementCount !== 0 && event.target === event.currentTarget.lastElementChild) {
+				soundSelect()
 				event.target.classList.add("selected");
 				firstdiscSelected = event.currentTarget;
 			} else {
