@@ -12,19 +12,23 @@ header {
 }
 #container{
 	display: flex;
-    	flex-direction: column;
-    	align-items: center;
+    flex-direction: column;
+    align-items: center;
+	width: 95vw;
+	max-width: 1200px;
 }
 #torreDeHanoiReset {
 	display: flex;
 	justify-content: center;
 }
-
+#divContador { 
+	margin-top: 10px;
+}
 #buttonReset{
 	border-style: hidden;
 	border-radius: 4px;
 	padding: 10px;
-	font-size: 15px;
+	font-size: 1rem;
 	background-color: #ffba08;
 	color: #000;
 	width: 200px;
@@ -46,9 +50,8 @@ header {
 #board{
 	display: flex;
 	margin: 0 auto;
-	width: 95vw;
 	justify-content: space-around;
-	max-width: 1200px;
+	width: 95%;
 	border-bottom: 5px solid #000;
 }
 .tower{
@@ -61,6 +64,7 @@ header {
 	align-items: center;
 	margin: 30px 20px 0;
 	cursor: pointer;
+	border-radius: 5px 5px 0 0 ;
 } 
 .disc{
 	background-color: white;
@@ -87,7 +91,7 @@ header {
 }
 
 .alert{
-	font-size: 15px;
+	font-size: 1rem;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -100,8 +104,9 @@ header {
 	border-style: hidden;
 	border-radius: 3px;
 	background-color: #dc2f02;
-	width: 75px;
-	height: 30px;
+	width: 200px;
+	height: fit-content;
+	justify-content: center;
 }
 .alertWin{
 	font-size: 15px;
@@ -137,7 +142,7 @@ header {
 }
 
 .selected {
-	background-color: #ffba08;
+	border: 3px solid #ffba08;
 }
 
 @media screen and (min-width:600px) {
@@ -161,5 +166,6 @@ header {
 	}
 	.tower {
 		width: 20px;
+		border-radius: 20px 20px 0 0 ;
 	}
 }
