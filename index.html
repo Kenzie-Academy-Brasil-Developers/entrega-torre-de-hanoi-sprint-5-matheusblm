@@ -18,7 +18,9 @@
 
 	<main>
 	</main>
-	<div id="container">	
+	<div id="container">
+		<button id="playMusic" class="buttonMusic">Play music!</button>
+		<button id="stopMusic" class="buttonMusic">Stop music!</button>	
 		<div id="divContador">
 			<p>Melhor solução: 15 movimentos</p>
 			<p id="contador"></p>
@@ -30,10 +32,12 @@
 		</div>
 	</div>
 	<picture>
+		<audio id="backgroundMusic">
+		  <source src="./midias/purrple-cat-lullaby.mp3" type="audio/mpeg">
+		</audio>
 		<audio id="audioSelect" src="./midias/Wood Plank Flicks.mp3" autoplay="false" ></audio>
 		<audio id="audioErro" src="./midias/Drill Gear.mp3" autoplay="false" ></audio>
 		<audio id="audioWin" src="./midias/winnerchickendinner.mp3" autoplay="false" ></audio>
-		<audio src="./midias/Biscuit (Prod. by Lukrembo).wav" type="audio/mpeg" controls autoplay loop  preload="auto" class="hidden"></audio>
 	</picture>
 	<script src="./script.js">
 

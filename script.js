@@ -1,13 +1,20 @@
 const buttonReset = document.querySelector("#buttonReset");
+const buttonPlayMusic = document.getElementById("playMusic")
+const buttonStopMusic = document.getElementById("stopMusic")
 let initialMain = document.querySelector("main").innerHTML; //colocar logo após criar as torres e discos
 let firstdiscSelected = null;
 let lastTower = document.querySelector(".tower3");
 let movimentos = document.getElementById("contador");
 let contador = 0;
-const select = new Audio();
-const erro = new Audio();
-const congr = new Audio();
+const backgroundSound = document.getElementById("backgroundMusic");
 
+
+buttonPlayMusic.addEventListener("click", function () {
+	backgroundSound.play();
+      });
+buttonStopMusic.addEventListener("click", function () {
+	backgroundSound.pause();
+      });
 function creatTower(){
 	let board = document.getElementById("board")
 	let newTower1 = document.createElement("div")
@@ -133,17 +140,18 @@ function movCount(){
 	div.append(novo)
 }
 function soundSelect() {
-	var sound = document.getElementById("audioSelect");
+	let sound = document.getElementById("audioSelect");
 	sound.play();
     }
 function soundErro() {
-	var sound = document.getElementById("audioErro");
+	let sound = document.getElementById("audioErro");
 	sound.play();
     }
 function soundWin() {
-	var sound = document.getElementById("audioWin");
+	let sound = document.getElementById("audioWin");
 	sound.play();
     }
+
 //Começa a criar o jogo
 function startGame() { 
 	creatTower();

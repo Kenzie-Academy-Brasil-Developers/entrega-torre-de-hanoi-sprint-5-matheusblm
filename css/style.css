@@ -18,6 +18,22 @@ header {
     max-width: 1200px;
     margin:0 auto;
 }
+.buttonMusic{
+    align-self: flex-start;
+    border-style: hidden;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 0.5rem;
+    background-color: #ffba08;
+    color: #000;
+    width: 30px;
+    margin-top: 5px;
+}
+#stopMusic{
+	position: absolute;
+	top: 18%;
+	left: 15%;
+}
 #torreDeHanoiReset {
 	display: flex;
 	justify-content: center;
@@ -147,6 +163,9 @@ header {
 }
 
 @media screen and (min-width:600px) {
+	#stopMusic{
+		left: 10%;
+	}
 	#divContador{
 		align-self: flex-end;
 	}
