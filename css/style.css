@@ -28,7 +28,7 @@ header {
 	margin: 0 auto;
 	width: 220px;
 }
-.tower1, .tower2, .tower3{
+.tower{
 	height: 300px;
    	 width: 10px;
 	border: 1px solid black;
@@ -38,14 +38,12 @@ header {
 	align-items: center;
 	margin-right: 90px;
 } 
-.tower1{
-	
-}
+
 .tower3{
 	margin-right: 0px;
 }
 
-.disc1, .disc2, .disc3, .disc4{
+.disc{
 	background-color: white;
 	height: 30px;
 	border: 1px solid black;
