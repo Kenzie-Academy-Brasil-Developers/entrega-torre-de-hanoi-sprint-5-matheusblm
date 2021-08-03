@@ -41,7 +41,6 @@ function checkMove(originDiv, targetDiv) {
 }  
 
 function discMove(event) {
-	console.log("move");
     if (firstdiscSelected === null) {
 		if (event.currentTarget.childElementCount === 0) {
 			console.log("erro sem filho");
@@ -56,6 +55,7 @@ function discMove(event) {
 		if (checkMove(firstdiscSelected, event.currentTarget)) {
 	  		let disc = firstdiscSelected.lastElementChild;
 	  		event.currentTarget.appendChild(disc);
+			firstdiscSelected.classList.remove("selected");
 			console.log("movimentado");
 		} else {
 			console.log("não pode movimentar");
@@ -66,6 +66,7 @@ function discMove(event) {
     }
 	checkWinner();
 }
+
 function resetTowers(){
 	const board = document.querySelector("#board");
 	board.innerHTML = "";
