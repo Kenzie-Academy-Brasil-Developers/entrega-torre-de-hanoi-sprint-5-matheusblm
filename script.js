@@ -70,7 +70,7 @@ function resetTowers(){
 	const board = document.querySelector("#board");
 	board.innerHTML = "";
 	let div = document.getElementById("torreDeHanoiReset")
-	div.classList.add("hidden")
+	div.classList.remove("alert")
 	startGame();
 }
     
@@ -86,7 +86,6 @@ buttonReset.addEventListener('click', resetTowers);
 function alertWin(){
 	let div = document.getElementById("torreDeHanoiReset")
 	let novo = document.createElement("span")
-	div.classList.remove("hidden")
 	div.classList.add("alert")
 	novo.append("Voce ganhou!")
 	div.appendChild(novo)
