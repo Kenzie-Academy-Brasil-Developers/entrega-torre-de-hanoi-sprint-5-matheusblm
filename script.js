@@ -41,7 +41,7 @@ function checkMove(originDiv, targetDiv) {
       console.log("move");
       if (firstDiskSelected === null) {
 	if (event.currentTarget.childElementCount === 1) {
-	  return "erro"; //criar aviso de erro
+	  return alertErro(); 
 	} else {
 	  event.currentTarget.classList.add("selected");
 	  firstDiskSelected = event.currentTarget;
@@ -72,6 +72,26 @@ function checkMove(originDiv, targetDiv) {
     
     function checkWinner(){
 	if(targetDiv.childElementCount === 4){
-		return alert("you win!")
+		return alertWin()
 	}
+}
+
+function alertWin(){
+	let div = document.getElementById("torreDeHanoiReset")
+	let novo = document.createElement("span")
+	div.classList.remove("hidden")
+	div.classList.add("alert")
+	novo.append("Voce ganhou!")
+	div.appendChild(novo)
+}
+
+function alertErro(){
+	let div = document.getElementById("board")
+	let novo = document.createElement("span")
+	novo.classList.add("alert")
+	novo.append("Voce nao pode mover esse disco!")
+	div.appendChild(novo)
+	setTimeout(function(){
+	novo.classList.add("hidden")
+	}, 3000)
 }

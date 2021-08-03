@@ -66,3 +66,20 @@ header {
 	width: 40px;
 	background-color:#27317A;
 }
+
+.alert{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column-reverse;
+	text-align: center;
+	padding: 40px;
+	transition-duration: 0.5s;
+}
+
+.hidden{
+	display: none;
+	transition-duration: 0.5s;
+}
