@@ -38,9 +38,8 @@ function checkMove(originDiv, targetDiv) {
 		return true;
 	} 
 	return false;
-}
-    
-   
+}  
+
 function discMove(event) {
 	console.log("move");
     if (firstdiscSelected === null) {
@@ -74,6 +73,33 @@ function resetTowers(){
     
 buttonReset.addEventListener('click', resetTowers);
     
+
+    function checkWinner(){
+	if(targetDiv.childElementCount === 4){
+		return alertWin()
+	}
+}
+
+function alertWin(){
+	let div = document.getElementById("torreDeHanoiReset")
+	let novo = document.createElement("span")
+	div.classList.remove("hidden")
+	div.classList.add("alert")
+	novo.append("Voce ganhou!")
+	div.appendChild(novo)
+}
+
+function alertErro(){
+	let div = document.getElementById("board")
+	let novo = document.createElement("span")
+	novo.classList.add("alert")
+	novo.append("Voce nao pode mover esse disco!")
+	div.appendChild(novo)
+	setTimeout(function(){
+	novo.classList.add("hidden")
+	}, 3000)
+}
+
 function checkWinner(){
 	lastTower = document.querySelector(".tower3");
 	if(lastTower.childElementCount === 4){
@@ -93,3 +119,4 @@ function startGame() {
 }
 
 startGame();
+
