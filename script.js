@@ -49,7 +49,7 @@ function discMove(event) {
     if (firstdiscSelected === null) {
 		if (event.currentTarget.childElementCount === 0) {
 			console.log("erro sem filho");
-
+			soundErro()
 	  		return alertErro();
 		} else {
 			console.log("selecionado");
@@ -62,11 +62,13 @@ function discMove(event) {
 	  		event.currentTarget.appendChild(disc);
 			contador++
 			movCount()
+			soundSelect()
 			firstdiscSelected.classList.remove("selected");
 
 			console.log("movimentado");
 		} else {
 			console.log("não pode movimentar");
+			soundErro()
 			alertErro();
 	  		firstdiscSelected.classList.remove("selected");
 		}
@@ -98,6 +100,7 @@ function alertWin(){
 	let novo = document.createElement("span")
 	novo.classList.add("youWin")
 	novo.classList.add("alertWin")
+	soundWin()
 	novo.append("Voce ganhou!")
 	div.appendChild(novo)
 	setTimeout(function(){
@@ -129,6 +132,18 @@ function movCount(){
 	novo.append(movimentos)
 	div.append(novo)
 }
+function soundSelect() {
+	var sound = document.getElementById("audioSelect");
+	sound.play();
+    }
+function soundErro() {
+	var sound = document.getElementById("audioErro");
+	sound.play();
+    }
+function soundWin() {
+	var sound = document.getElementById("audioWin");
+	sound.play();
+    }
 //Começa a criar o jogo
 function startGame() { 
 	creatTower();
