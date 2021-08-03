@@ -94,7 +94,7 @@ function alertWin(){
 	let div = document.getElementById("torreDeHanoiReset")
 	let novo = document.createElement("span")
 	novo.classList.add("youWin")
-	div.classList.add("alertWin")
+	novo.classList.add("alertWin")
 	novo.append("Voce ganhou!")
 	div.appendChild(novo)
 	setTimeout(function(){

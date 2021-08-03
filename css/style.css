@@ -24,7 +24,7 @@ header {
 	border-style: hidden;
 	border-radius: 4px;
 	padding: 10px;
-	font-size: 10px;
+	font-size: 15px;
 	background-color: #ffba08;
 	color: #000;
 	width: 200px;
@@ -87,13 +87,11 @@ header {
 }
 
 .alert{
-	font-size: 10px;
+	font-size: 15px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translateX(-50%);
-	display: flex;
-	flex-direction: column-reverse;
 	text-align: center;
 	padding: 15px;
 	transition-duration: 0.5s;
@@ -102,17 +100,15 @@ header {
 	border-style: hidden;
 	border-radius: 3px;
 	background-color: #dc2f02;
-	width: 50px;
+	width: 75px;
 	height: 30px;
 }
 .alertWin{
-	font-size: 10px;
+	font-size: 15px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translateX(-50%);
-	display: flex;
-	flex-direction: column-reverse;
 	text-align: center;
 	padding: 15px;
 	transition-duration: 0.5s;
@@ -120,11 +116,21 @@ header {
 	color: white;
 	border-style: hidden;
 	border-radius: 3px;
-	background-color: black;
-	width: 200px;
-	height: 50px;
+	background-color: #faa307;
+	width: 50px;
+	height: 30px;
     }
-
+#contador{
+    background-color: #ffba08;
+    border-style: hidden;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 15px;
+    color: #000;
+    transition: 0.2s;
+    box-shadow: 0 2px #b38719;
+    margin-top: 20px;
+}
 .hidden{
 	display: none;
 	transition-duration: 0.5s;
