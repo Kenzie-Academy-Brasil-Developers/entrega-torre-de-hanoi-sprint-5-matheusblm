@@ -44,6 +44,7 @@ function checkMove(originDiv, targetDiv) {
 	return false;
 }  
 
+
 function discMove(event) {		
 	if (firstdiscSelected === null) {
 		if(event.target.classList.contains("disc")){
@@ -64,9 +65,11 @@ function discMove(event) {
 			movCount()
 			event.currentTarget.lastElementChild.classList.remove("selected");
 		} else {
+      soundErro()
 			alertErro("Não é possivel colocar o disco em cima de um disco menor!");
 			firstdiscSelected.lastElementChild.classList.remove("selected");
 			}
+
 		firstdiscSelected = null;
 	}
 	checkWinner();
@@ -95,6 +98,7 @@ function alertWin(){
 	let novo = document.createElement("span")
 	novo.classList.add("youWin")
 	novo.classList.add("alertWin")
+	soundWin()
 	novo.append("Voce ganhou!")
 	div.appendChild(novo)
 	setTimeout(function(){
@@ -108,6 +112,7 @@ function alertErro(text){
 	novo.classList.add("alert")
 	novo.append(text)
 	div.appendChild(novo)
+  soundErro()
 	setTimeout(function(){
 	novo.classList.add("hidden")
 	}, 5000)
@@ -126,6 +131,18 @@ function movCount(){
 	novo.append(movimentos)
 	div.append(novo)
 }
+function soundSelect() {
+	var sound = document.getElementById("audioSelect");
+	sound.play();
+    }
+function soundErro() {
+	var sound = document.getElementById("audioErro");
+	sound.play();
+    }
+function soundWin() {
+	var sound = document.getElementById("audioWin");
+	sound.play();
+    }
 //Começa a criar o jogo
 function startGame() { 
 	creatTower();
