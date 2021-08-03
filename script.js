@@ -1,4 +1,3 @@
-let towersDiv = document.querySelectorAll(".tower");
 const buttonReset = document.querySelector("#buttonReset");
 let initialMain = document.querySelector("main").innerHTML; //colocar logo após criar as torres e discos
 let firstdiscSelected = null;
@@ -45,50 +44,49 @@ function checkMove(originDiv, targetDiv) {
 	return false;
 }  
 
-function discMove(event) {
-    if (firstdiscSelected === null) {
-		if (event.currentTarget.childElementCount === 0) {
-			console.log("erro sem filho");
-			soundErro()
-	  		return alertErro();
+
+function discMove(event) {		
+	if (firstdiscSelected === null) {
+		if(event.target.classList.contains("disc")){
+			if (event.currentTarget.childElementCount !== 0 && event.target === event.currentTarget.lastElementChild) {
+				event.target.classList.add("selected");
+				firstdiscSelected = event.currentTarget;
+			} else {
+				return alertErro("Voce não pode mover esse disco!");
+			}
 		} else {
-			console.log("selecionado");
-	  		event.currentTarget.classList.add("selected");
-	  		firstdiscSelected = event.currentTarget;
+			alertErro("Selecione um disco!")
 		}
-    } else {
+	} else {
 		if (checkMove(firstdiscSelected, event.currentTarget)) {
-	  		let disc = firstdiscSelected.lastElementChild;
-	  		event.currentTarget.appendChild(disc);
+			let disc = firstdiscSelected.lastElementChild;
+			event.currentTarget.appendChild(disc);
 			contador++
 			movCount()
-			soundSelect()
-			firstdiscSelected.classList.remove("selected");
-
-			console.log("movimentado");
+			event.currentTarget.lastElementChild.classList.remove("selected");
 		} else {
-			console.log("não pode movimentar");
-			soundErro()
-			alertErro();
-	  		firstdiscSelected.classList.remove("selected");
-		}
+      soundErro()
+			alertErro("Não é possivel colocar o disco em cima de um disco menor!");
+			firstdiscSelected.lastElementChild.classList.remove("selected");
+			}
+
 		firstdiscSelected = null;
-    }
+	}
 	checkWinner();
 }
+
 
 function resetTowers(){
 	const board = document.querySelector("#board");
 	board.innerHTML = "";
 	let div = document.getElementById("torreDeHanoiReset")
 	div.classList.remove("alertWin")
-	contador = 0
+	contador = 0;
+	firstdiscSelected = null;
 	startGame();
 }
     
 buttonReset.addEventListener('click', resetTowers);
-    
-
     function checkWinner(){
 	if(targetDiv.childElementCount === 4){
 		return alertWin()
@@ -105,18 +103,19 @@ function alertWin(){
 	div.appendChild(novo)
 	setTimeout(function(){
 		novo.classList.add("hidden")
-		}, 3000)
+		}, 5000)
 }
 
-function alertErro(){
+function alertErro(text){
 	let div = document.getElementById("board")
 	let novo = document.createElement("span")
 	novo.classList.add("alert")
-	novo.append("Voce nao pode mover esse disco!")
+	novo.append(text)
 	div.appendChild(novo)
+  soundErro()
 	setTimeout(function(){
 	novo.classList.add("hidden")
-	}, 1000)
+	}, 5000)
 }
 
 function checkWinner(){
@@ -148,11 +147,12 @@ function soundWin() {
 function startGame() { 
 	creatTower();
 	creatDisc();
-	towersDiv = document.querySelectorAll(".tower");
-	
+	let towersDiv = document.querySelectorAll(".tower");
+	let discsDiv = document.querySelectorAll(".disc");
 	for (let index = 0; index < towersDiv.length; index++) {
 		towersDiv[index].addEventListener("click", discMove);
 	}
+
 }
 
 startGame();
