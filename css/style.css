@@ -44,10 +44,11 @@ header {
 	width: 95vw;
 	justify-content: space-around;
 	max-width: 1200px;
+	border-bottom: 5px solid #000;
 }
 .tower{
 	height: 200px;
-   	width: 12px;
+   	width: 10px;
 	border: none;
 	background-color: #370617;
 	display: flex; 
@@ -62,7 +63,7 @@ header {
 
 .disc{
 	background-color: white;
-	height: 30px;
+	height: 25px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	border-radius: 3px;	
 	box-sizing: border-box;
@@ -108,6 +109,9 @@ header {
 }
 
 @media screen and (min-width:600px) {
+	.disc {
+		height: 30px;
+	}
 	.disc1{
 		width: 200px;
 	}
