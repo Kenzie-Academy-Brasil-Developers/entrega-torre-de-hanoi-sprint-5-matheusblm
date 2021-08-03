@@ -3,7 +3,10 @@ let initialMain = document.querySelector("main").innerHTML; //colocar logo após
 let firstdiscSelected = null;
 let lastTower = document.querySelector(".tower3");
 let movimentos = document.getElementById("contador");
-let contador = 0
+let contador = 0;
+const select = new Audio();
+const erro = new Audio();
+const congr = new Audio();
 
 function creatTower(){
 	let board = document.getElementById("board")
@@ -91,7 +94,7 @@ function alertWin(){
 	let div = document.getElementById("torreDeHanoiReset")
 	let novo = document.createElement("span")
 	novo.classList.add("youWin")
-	div.classList.add("alertWin")
+	novo.classList.add("alertWin")
 	novo.append("Voce ganhou!")
 	div.appendChild(novo)
 	setTimeout(function(){
