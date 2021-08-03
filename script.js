@@ -76,7 +76,7 @@ function resetTowers(){
 	const board = document.querySelector("#board");
 	board.innerHTML = "";
 	let div = document.getElementById("torreDeHanoiReset")
-	div.classList.remove("alert")
+	div.classList.remove("alertWin")
 	contador = 0
 	startGame();
 }
@@ -93,9 +93,13 @@ buttonReset.addEventListener('click', resetTowers);
 function alertWin(){
 	let div = document.getElementById("torreDeHanoiReset")
 	let novo = document.createElement("span")
-	div.classList.add("alert")
+	novo.classList.add("youWin")
+	div.classList.add("alertWin")
 	novo.append("Voce ganhou!")
 	div.appendChild(novo)
+	setTimeout(function(){
+		novo.classList.add("hidden")
+		}, 3000)
 }
 
 function alertErro(){
