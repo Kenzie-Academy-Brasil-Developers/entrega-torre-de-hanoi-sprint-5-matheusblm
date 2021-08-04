@@ -29,6 +29,10 @@ header {
     width: 30px;
     margin-top: 5px;
 }
+.buttonMusic:hover{
+	background-color: #b38719;
+	cursor: pointer;
+}
 
 #torreDeHanoiReset {
 	display: flex;
