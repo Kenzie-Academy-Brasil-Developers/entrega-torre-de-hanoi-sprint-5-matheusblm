@@ -29,11 +29,7 @@ header {
     width: 30px;
     margin-top: 5px;
 }
-#stopMusic{
-	position: absolute;
-	top: 18%;
-	left: 15%;
-}
+
 #torreDeHanoiReset {
 	display: flex;
 	justify-content: center;
@@ -163,9 +159,7 @@ header {
 }
 
 @media screen and (min-width:600px) {
-	#stopMusic{
-		left: 10%;
-	}
+
 	#divContador{
 		align-self: flex-end;
 	}
