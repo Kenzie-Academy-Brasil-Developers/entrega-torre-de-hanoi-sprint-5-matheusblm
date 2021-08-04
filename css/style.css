@@ -1,5 +1,6 @@
 body {
-     background-color: whitesmoke
+     background-color: whitesmoke;
+	 font-family: 'Roboto', sans-serif;
 }
 
 header { 
@@ -41,6 +42,10 @@ header {
 #divContador { 
 	margin-top: 10px;
 }
+#divContador > p { 
+	margin-top: 10px;
+}
+
 #buttonReset{
 	border-style: hidden;
 	border-radius: 4px;
@@ -151,7 +156,7 @@ header {
     color: #000;
     transition: 0.2s;
     box-shadow: 0 2px #b38719;
-    margin-top: 20px;
+	text-align: center;
 }
 .hidden{
 	display: none;

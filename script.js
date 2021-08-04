@@ -89,8 +89,9 @@ function resetTowers(){
 	board.innerHTML = "";
 	let div = document.getElementById("torreDeHanoiReset")
 	div.classList.remove("alertWin")
-	contador = 0;
 	firstdiscSelected = null;
+	contador = 0;
+	movCount();
 	startGame();
 }
     
@@ -133,11 +134,8 @@ function checkWinner(){
 	}
 }
 function movCount(){
-	let novo = document.createElement("span")
-	let div = document.getElementById("divContador")
-	movimentos.innerHTML = "Movimentos: " + contador
-	novo.append(movimentos)
-	div.append(novo)
+	let div = document.querySelector("#contador > span");
+	div.textContent = contador;
 }
 function soundSelect() {
 	let sound = document.getElementById("audioSelect");
